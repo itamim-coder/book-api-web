@@ -1,6 +1,16 @@
+const toggleSearchResult = displayStyle => {
+  document.getElementById('search-result').style.display = displayStyle; 
+}
+const toggleSearchNumber = displayStyle => {
+  document.getElementById('search-number').style.display = displayStyle; 
+}
+
+
 const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+    toggleSearchResult('none');
+    toggleSearchNumber('none');
 
     const url = `http://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
@@ -11,7 +21,9 @@ const searchBook = () => {
  const displaySearchResult = books => {
     // console.log(books.length);
     const searchResult = document.getElementById('search-result')
-const resultFound = document.getElementById('search-number')  
+    searchResult.textContent='';
+const resultFound = document.getElementById('search-number') 
+resultFound.textContent=''; 
 const resultDiv = document.createElement('p')
 resultDiv.innerHTML = `<h3 class="text-center"> Result Found : ${books.length}</h3>`
 resultFound.appendChild(resultDiv);
@@ -27,12 +39,14 @@ resultFound.appendChild(resultDiv);
         <div class="card-body">
           <h5 class="card-title">${book.title}</h5>
           <p class="card-text">Author : <br>${book.author_name}</p>
-          <p class="card-text">Publisher : <br>${book.publisher[0]}</p>
+          <p class="card-text">Publisher : <br>${book.publisher}</p>
           <p class="card-text">First Publish Year : <br>${book.first_publish_year}</p>
         </div>
       </div>
         `
         searchResult.appendChild(div);
+        toggleSearchResult('flex');
+        toggleSearchNumber('block');
    
         
     });

@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(241, 228, 204);
+}
+.button{
+    background-color: rgb(172, 91, 91);
+    color: rgb(250, 241, 241);
+    font-size: large;
+}
+.button:hover{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+#spinner{
+    display: none;
+}
+.error{
+    text-align: center;
+   
+    background-color: rgb(202, 68, 68);
+    padding:  30px;
+    font-size: large;
+    font-weight: 700;
+    color: rgb(230, 220, 207);
+
+}
+.box{
+    background-color: rgb(231, 218, 213);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
